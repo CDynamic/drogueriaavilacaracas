@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <!-- <record id="view_Inventory_move_form" model="ir.ui.view">
+            <field name="name">view.Inventory.move.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form" />
+            <field name="arch" type="xml">
+                
+                <xpath  expr="//field[@name='location_dest_id']"  position="after">
+                    <field name="guias" invisible="1"/>
+                    <field name="bultos"  attrs="{'invisible': [('guias', '=', False)]}"/>
+                </xpath>
+                
+            </field>
+        </record> -->
+
+        <record id="view_guias_Movilizacion_tree" model="ir.ui.view">
+            <field name="name">view.guias.Movilizacion.tree</field>
+            <field name="model">guia_sicm.guias</field>
+            <field name="arch" type="xml">
+              <tree create="false" string="Guias">
+                <field name="factura"/>
+                <field name="cliente" />
+                <field name="type" />
+                <field name="status"/>
+                
+                <field name="pdf_guia" widget="pdf_guia" class="oe_stat_button" type="object" icon="fa-file-pdf-o"/>
+                <button name="crear_guia" string="Generar Guia" attrs="{'invisible': [('status', 'in',['2','3','4','5','7'])]}"  class="oe_stat_button btn btn-warning" type="object" icon="fa-cogs"/>
+                <button name="aprobar_guia" string="Aprobar Guia" attrs="{'invisible': [('status', '!=', '2')]}" class="oe_stat_button btn btn-success" type="object" icon="fa-check"/>
+                <button name="detalle_items" string="Detalles De la Guia" attrs="{'invisible': [('status', 'in', ['7','8'])]}" class="oe_stat_button" type="object" icon="fa-eye"/>
+                <button name="anular_guia" string="Anular" attrs="{'invisible': [('status', 'in', ['4','5'])]}" class="oe_stat_button btn btn-danger" type="object" icon="fa-times-circle"/>
+              </tree>
+            </field>
+          </record>
+
+        <record id="view_guias_Movilizacion_view_inventary2" model="ir.ui.view">
+        <field name="name">view.guias.Movilizacion.view.inventarym</field>
+        <field name="model">sale.order.cancel.guia</field>
+        <field name="arch" type="xml">
+            <form>
+                 <field name="order_id" invisible="1"/>
+                <div>
+                  
+                    <h4 class="text-info">¡Esta orden posee una guía relacionada! Ambas serán canceladas.</h4> 
+                    <p>¿Desea continuar?</p>
+                </div>
+                <footer>
+                    <button string="Confirmar" name="action_cancel_guia" type="object" class="oe_highlight" data-hotkey="q"/>
+                    <button string="Cancelar" class="btn btn-default" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+        <record id="view_guias_Movilizacion_view_inventary" model="ir.actions.act_window">
+            <field name="name">Guías</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">guia_sicm.guias</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                
+              <p class="oe_view_nocontent_create">
+              Guías
+            </p>
+              <p>
+                Sistema Integral de Control de Medicamentos
+            </p>
+            </field>
+      </record>  
+
+
+    <menuitem id="menu_Inventary_Guia_control" name="Guías" sequence="2" parent="stock.menu_stock_root"/>
+    <menuitem id="menu_Inventary_Guia_control_items" name="Listados de guias" parent="menu_Inventary_Guia_control" sequence="0" action="view_guias_Movilizacion_view_inventary"/>
+    </data>
+</odoo>

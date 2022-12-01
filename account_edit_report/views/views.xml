@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<template id="external_layout_bold_ksp" inherit_id="web.external_layout_standard">
+    <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']/div" position="replace">
+        <div class="row">
+                <div class="col-3 mb4">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 45px;" alt="Logo"/>
+                </div>
+                <div class="col-6 text-center" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+                <div class="3">
+                    <strong>RIF: </strong><span t-field="company.company_registry"/>
+                    <br/>
+                    <span class="text-center">
+                      Forma libre
+                    </span>
+                    <br/><strong>Numero de Control: </strong><span t-field="o.l10n_ve_document_number"/>
+                </div>
+            </div>
+        
+    </xpath>
+</template>
+
+    <template
+        id="report_invoice_document_comments"
+        inherit_id="account.report_invoice_document"
+    >
+    
+        <xpath expr="//div[@class='clearfix']" position="replace">
+                <div class="clearfix">
+                    <div id="total" class="row">
+                        <div class="col-8 border" style="font-size:12px;">
+                        <span class=""><b>Únicamente </b> pagar por transferencia o depositos a las siguientes cuentas:</span>
+                        <br/>
+                          <t t-foreach="request.env['account_edit_report.notas_pagar'].sudo().search([])" t-as="obj">
+                              <span class=""><t t-esc="obj.cuenta"/></span>
+                              <span class=""><t t-esc="obj.banco.name"/></span>
+                              <span class=""><t t-esc="obj.numero"/>,</span>
+                              <br/>
+                          </t>
+                          <br/>
+                          <span class="">a nombre de: </span>
+                          <span t-field="o.company_id.name"/>
+                          <span class="">, Rif:</span>
+                          <span t-field="o.company_id.company_registry"/>
+                          <br/>
+                          <span class="">Enviar Soporte a : </span>
+                          <span t-field="o.company_id.email"/>
+                        </div>
+                        <div class="col-4 border">
+                                <table class="table table-sm" style="page-break-inside: avoid;">
+
+                                    <!--Tax totals-->
+                                    <t t-set="tax_totals" t-value="json.loads(o.tax_totals_json)"/>
+                                    <t t-call="account.document_tax_totals"/>
+
+                                    <!--Payments-->
+                                    <t t-if="print_with_payments">
+                                        <t t-if="o.payment_state != 'invoicing_legacy'">
+                                            <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
+                                            <t t-foreach="payments_vals" t-as="payment_vals">
+                                                <tr>
+                                                    <td>
+                                                        <i class="oe_form_field text-right oe_payment_label">Paid on <t t-esc="payment_vals['date']" t-options='{"widget": "date"}'/></i>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <span t-esc="payment_vals['amount']" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="len(payments_vals) > 0">
+                                                <tr class="border-black">
+                                                    <td><strong>Amount Due</strong></td>
+                                                    <td class="text-right">
+                                                        <span t-field="o.amount_residual"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </table>
+                        </div>
+                        
+                    </div>
+                
+            
+            </div>
+            
+        </xpath>
+
+        <xpath expr="//div[@id='qrcode']" position="replace">
+          <p style="font-size:10px;">
+              Esta factura vence el: <b class="m-0" t-field="o.invoice_date_due"/>, después de esa fecha usted deberá pagar la cantidad de USD$ <span t-field="o.totalusd"/> a la tasa publicada por el banco central de venezuela 
+              en su portal <a href="https://www.bcv.org.ve/">www.bcv.org.ve</a>, de acuerdo a las Normativas y Disposicione Legales Vigente.el factor de cambio de esta fectura es de Bs. <span t-field="o.usd"/> /USD$ y debera ser pagada al cambio del dia despues de su vencimiento.
+        </p>
+        </xpath>
+
+    </template>
+<!-- 
+usd
+
+
+ -->
+</odoo>

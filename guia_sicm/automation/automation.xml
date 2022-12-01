@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <!-- <record id="AUTOMATION_ID" model="base.automation">
+            <field name="name">automatizacion de Guia </field>
+            <field name="model_id" ref="account.model_account_move" />
+            <field name="state">code</field>
+            <field name="code">model.revision_due_invoices()</field>
+            <field name="trigger">on_create_or_write</field>
+            <field name="active" eval="True" />
+        </record> -->
+
+    </data>
+</odoo>

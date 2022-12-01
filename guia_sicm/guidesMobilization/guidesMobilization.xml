@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+     <record id="view_guias_Movilizacion_tree" model="ir.ui.view">
+            <field name="name">view.guias.Movilizacion.tree</field>
+            <field name="model">guia_sicm.guias</field>
+            <field name="arch" type="xml">
+              <tree string="Guias">
+                <field name="factura"/>
+                <field name="cliente" />
+                <field name="type" />
+                <field name="status"/>
+                <field name="pdf_guia" widget="pdf_guia"  icon="fa-file-pdf-o"/>
+                <button name="detalle_items" string="Detalles De la Guia" class="oe_stat_button" type="object" icon="fa-eye"/>
+                <button name="anular_guia" string="Anular" attrs="{'invisible': [('status', 'in', ['4','5'])]}" class="oe_stat_button btn btn-danger" type="object" icon="fa-times-circle"/>
+              </tree>
+            </field>
+          </record>
+
+    <record id="view_form_guia_sicm_guias" model="ir.ui.view">
+      <field name="name">view.form.guia.sicm.guias</field>
+      <field name="model">guia_sicm.guias</field>
+      <field name="arch" type="xml">
+        <form string="Guias">
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">
+               <field name="status" attrs="{'invisible': True}" />
+                <field name="factura" widget="many2many_tags"/>
+                <field name="cliente" widget='selection' options="{'no_create_edit' : True}"  damain="[('guiacreadad','=',False),('generarGuia',)]" />
+                <field name="bultos" attrs="{'invisible': False}"/>
+                <field name="type" attrs="{'invisible': True}"/>
+                
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>      
+
+    <record id="view_guias_Movilizacion_view" model="ir.actions.act_window">
+            <field name="name">Guías</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">guia_sicm.guias</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                
+              <p class="oe_view_nocontent_create">
+              Guías
+            </p>
+              <p>
+                Sistema Integral de Control de Medicamentos
+            </p>
+            </field>
+      </record>
+
+    <record id="view_guias_Movilizacion_view_Bultos" model="ir.ui.view">
+        <field name="name">view.guias.Movilizacion.view.Bultos</field>
+        <field name="model">guia_sicm.guias</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- <sheet> -->
+                  <group name="group_top">
+                    <div>
+                          <h5 class="text-info">Se debe Agregar la catidad de Bultos para continuar... </h5> 
+                      </div>
+                      <field name="bultos"/>
+                      <footer>
+                        <button string="Guardar" name="guardar_bultos" type="object" class="oe_highlight" data-hotkey="q"/>
+                        <button string="Cancelar" class="btn btn-default" special="cancel" data-hotkey="z"/>
+                    </footer>
+                  </group>
+                <!-- </sheet> -->
+ 
+            </form>
+        </field>
+    </record>
+
+    <record id="report_id" model="ir.actions.report">
+       <field name="name">Model Guia</field>
+       <field name="model">guia_sicm.guias</field>
+       <field name="report_type">qweb-pdf</field>
+       <field name="report_name">guia_sicm.report_visit_guias</field>
+       <field name="report_file">guia_sicm.report_visit_guias</field>
+   </record>
+
+    <menuitem id="menu_finance_Guia_control" name="Guías" sequence="2" parent="account_accountant.menu_accounting"/>
+    <menuitem id="menu_guias_Movilizacion" name="Listados de guias" parent="menu_finance_Guia_control" sequence="0" action="view_guias_Movilizacion_view"/>
+    
+    </data>
+</odoo>

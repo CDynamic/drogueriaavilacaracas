@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+     <record id="view_account_edit_report_notas_pagar_tree" model="ir.ui.view">
+            <field name="name">view.account_edit_report.notas_pagar.tree</field>
+            <field name="model">account_edit_report.notas_pagar</field>
+            <field name="arch" type="xml">
+            <tree string="Cuentas Bancarias para el pago">
+                <field name="banco" />
+                <field name="numero"/>
+                <field name="cuenta" />
+                <field name="status"/>
+                
+            </tree>
+            </field>
+          </record>
+
+    <record id="view_form_account_edit_report_notas_pagar" model="ir.ui.view">
+      <field name="name">view.form.account_edit_report.notas_pagar</field>
+      <field name="model">account_edit_report.notas_pagar</field>
+      <field name="arch" type="xml">
+        <form string="Cuentas Bancarias para el pago">
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">
+               
+                <field name="banco" widget=""/>
+                
+                <field name="numero" attrs="{'invisible': False}"/>
+                
+              </group>
+              <group name="group_right">
+               
+                
+                <field name="cuenta" widget='selection' />
+                
+                <field name="status" />
+                
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>      
+
+    <record id="view_account_edit_report_notas_pagar_view" model="ir.actions.act_window">
+            <field name="name">Cuentas_Bancarias_para_el_pago</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account_edit_report.notas_pagar</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                
+              <p class="oe_view_nocontent_create">
+              Cuentas Bancarias para el pago
+            </p>
+              
+            </field>
+      </record>
+
+
+
+    <menuitem id="menu_account_edit_report_notas_main" name="Configuracion de Facturas" sequence="30" parent="account.menu_finance_configuration" />
+
+
+    <menuitem id="menu_account_edit_report_notas" name="Cuentas Bancarias para el pago" parent="menu_account_edit_report_notas_main"  sequence="1" action="view_account_edit_report_notas_pagar_view"/>
+    <!--  -->
+    </data>
+</odoo>

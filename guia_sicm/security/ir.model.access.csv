@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_guia_sicm_Guias,guia_sicm.guias,model_guia_sicm_guias,base.group_user,1,1,1,1
+access_guia_sicm_credentials,guia_sicm.credentials,model_guia_sicm_credentials,base.group_user,1,1,1,1
+access_guia_sicm_iGuias,guia_sicm.iguias,model_guia_sicm_iguias,base.group_user,1,1,1,1
+access_sale_order_cancel_guia,sale.order.cancel.guia,model_sale_order_cancel_guia,base.group_user,1,1,1,1

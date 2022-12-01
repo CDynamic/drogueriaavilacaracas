@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+    
+      <!-- <template id="contactus_form_maps" name="Contact Form" inherit_id="thema_dac.view_thema_dac_contacts_form">
+            <xpath  expr="//field[@name='state_id']"  position="after">
+                <div id="map" style="height:300px;width:300px;"></div>
+            </xpath>
+        </template> -->
+    </data>
+</odoo>

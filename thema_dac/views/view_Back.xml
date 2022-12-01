@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="view_res_partne_form_int" model="ir.ui.view">
+            <field name="name">view.res.partne.formt</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="status" modifiers="{}"/>
+                    <field name="types"  attrs="{'invisible': [('status', '=', False)]}"  />    
+                    <field name="website_leaflet_lat"  attrs="{'invisible': [('status', '=', False)]}" placeholder="10.474754" />    
+                    <field name="website_leaflet_lng"  attrs="{'invisible': [('status', '=', False)]}" placeholder="-66.955545" />
+                    <field name="hors"  attrs="{'invisible': [('status', '=', False)]}"  />   
+                </xpath>
+            </field>
+        </record>   
+    </data>
+</odoo>

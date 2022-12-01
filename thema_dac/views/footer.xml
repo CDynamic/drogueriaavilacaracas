@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="footer_default_sample" inherit_id="website.layout"
+              name="Footer Sample">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <footer class="pt-100">
+                <!-- Footer section starts here -->
+                <section class="footer">
+                    <div class="container">
+                        <div class="footer_top">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-lg-2 col-md-12 col-sm-12">
+                                    
+                                       
+
+                                            <div class="footer_center mr-0">
+                                                <div class="footer_logo mr-0">
+                                                    <a href="/">
+                                                        <t t-call="website.placeholder_header_brand">
+                                                            <t t-set="_link_class"
+                                                            t-value="'mr-auto'"/>
+                                                        </t>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        
+                                </div>
+                                <div class="col-12 col-lg-10 col-md-12 col-sm-12">
+                                    <div class="footer_right">
+                                        <div class="footer_right_bottom">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6 col-lg-6 col-sm-12">
+                                                    <div class="useful_links">
+                                                        <h4 class="f_r_h">
+                                                            Navegacion
+                                                        </h4>
+                                                        <div class="ul_wrapper">
+                                                            <ul>
+                                                                <t t-foreach="website.menu_id.child_id"
+                                                                   t-as="submenu">
+                                                                    <t t-call="website.submenu">
+                                                                        <t t-set="item_class"
+                                                                           t-value="'nav-item'"/>
+                                                                        <t t-set="link_class"
+                                                                           t-value="''"/>
+                                                                    </t>
+                                                                </t>
+                                                            </ul>
+                                                            <ul>
+                                                                <a href="/nosotros">
+                                                                    <li>
+                                                                        Nosotros
+                                                                    </li>
+                                                                </a>
+                                                                <a href="/politicas">
+                                                                    <li>Privacidad y Política
+                                                                    </li>
+                                                                </a>
+                                                                <a href="/terminos">
+                                                                    <li>Términos y Condiciones
+                                                                    </li>
+                                                                </a>
+                                                                
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <div class="store">
+                                                        <h4 class="f_r_h">
+                                                            Contacto
+                                                        </h4>
+                                                        <div class="address">
+                                                        <ul>
+                                                           <li> +58(424)208-11-61</li>
+                                                           <li>
+                                                            <b>ventas@avilacaracas.com </b>
+                                                            </li>
+                                                            <li>
+                                                            Centro Comercial Uslar, Montalbán, Caracas - Distrito Capital
+                                                            </li>
+                                                            <field name="website_country_group_ids" widget="many2many_tags"/>
+                                                        </ul>
+                                                        </div>
+                                                        
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer_bottom">
+                            <div class="row">
+
+                                
+
+                                <div class="col-4 f_b_r">
+                                    <div class="bottom_left">
+                                        <span> 
+                                        <a href="#">Copyright © 2022 Droguería Ávila Caracas C. A</a>
+                                        </span>
+                                        <t id="language_selector_call"
+                                       t-call="portal.language_selector">
+                                        <t t-set="_div_classes"
+                                           t-value="(_div_classes or '') + ' dropup'"/>
+
+                                       
+                                    </t>
+
+                                    </div>
+                                    
+
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="bottom_right">
+                                        <div class="footer-social">
+                                            <a href="https://conceptualdynamic.com/">
+                                                <span> Hecho por Conceptual Dynamic 💙</span>
+                                            </a> 
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="bottom_right">
+                                        <div class="footer-social">
+                                            <!-- <a href="/website/social/facebook">
+                                                <i class="fa fa-facebook m-1"/>
+                                            </a>
+                                            <a href="/website/social/twitter"
+                                               class="s_share_twitter"
+                                               target="_blank">
+                                                <i class="fa fa-twitter m-1"/>
+                                            </a> -->
+                                            <a href="/website/social/instagram"
+                                               class="s_share_instagram"
+                                               target="_blank">
+                                                <i class="fa fa-instagram m-1"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <!-- Footer section ends here -->
+            </footer>
+        </xpath>
+        <xpath expr="//div[@class='o_footer_copyright o_colored_level o_cc']" position="replace">
+        <div></div>
+        </xpath>
+    </template>
+</odoo>

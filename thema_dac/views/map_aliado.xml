@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+
+        <template id="map_Aliado_view" name="Aliados">
+        
+            <t t-call="website.layout">
+                <xpath expr="//t [@t-call='website.navbar']" position="after">
+
+                <div id="Cabecera" class="oe_structure"></div>
+                <section class="men_women">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4 col-lg-4 col-md-4 col-sm-4 addressmenu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="estado-aliado">Estado</label>
+                                            <select id="estado-aliado" class="form-control estados-aliados">
+                                                <option selected="" />
+                                                <t t-foreach="main_sub_category.state_id" t-as="stado">
+                                                    <option t-att-value="stado.id">
+                                                        <span t-esc="stado.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="municiopio_aliado">Municipio</label>
+                                            <select id="municiopio_aliado" class="form-control municiopio_aliado">
+                                                <option selected="" />
+                                            </select>
+                                        </div>
+                                        <div id='cradincer_aliado' class='cradincer_aliado'/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-8 mapa">
+                                <div id="map_aliado">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div id="wrapaa" class="oe_structure"></div>
+                 </xpath>
+            </t>
+           
+        </template>
+    </data>
+</odoo>
+<!-- "error": "'website' Traceback (most recent call last): File "C:\odoo\server\odoo\addons\base\models\qweb.py", line 219, in render_template yield from compiled_fn(self, values, log) File "<template_787>", line 75, in template_787 KeyError: 'website' Error when render the template KeyError: 'website' Template: website.layout Path: /t/html/t[2] Node: <t t-set="x_icon" t-value="website.image_url(website, 'favicon')"/> " -->

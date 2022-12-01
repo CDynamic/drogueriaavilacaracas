@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="dac_index_banner" inherit_id="website.snippets"
+              name="Fuge Index banner">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]"
+               position="inside">
+            <t t-snippet="thema_dac.dac_banner"
+               t-thumbnail='data:image/png;base64,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'/>
+            
+        </xpath>
+    </template>
+
+    <template id="dac_banner" name="Fuge Banner">
+        <section class="banner">
+            <!-- Top nav -->
+            <div class="top-header-content ">
+
+                <div class="">
+
+                    
+                        <div class="">
+
+                            <div id="carouselExampleIndicators"
+                                 class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators"
+                                        data-slide-to="0" class="active"/>
+                                    <li data-target="#carouselExampleIndicators"
+                                        data-slide-to="1"/>
+
+                                    <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+                                </ol>
+
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <img class="bg-right">
+                                                    <div class="container-fluid">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <div class="card left_card">
+
+                                                                        <div class="card-body">
+                                                                            <h2 class="card-title">
+                                                                                Women's
+                                                                                Fashion
+                                                                                <p class="card-title">
+                                                                                    50%
+                                                                                    OFF
+                                                                                </p>
+                                                                            </h2>
+                                                                            <a href="#"
+                                                                               class="btn btn-banner1">
+                                                                                Shop
+                                                                                now
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </img>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+
+
+                                            <div class="col-12">
+                                                <img class="bg-right2">
+                                                    <div class="container-fluid">
+                                                        <!-- <div class="top-right  d-flex">
+                                                            <h6>UPTO 30% OFF ON ALL STYLES,</h6>
+                                                            <P>Click Here For &nbsp;
+                                                                <i class="far fa-hand-point-right"></i><span class="more">More Details</span>
+                                                            </P>
+                                                        </div> -->
+
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <div class="card left_card">
+
+                                                                        <div class="card-body">
+                                                                            <h2 class="card-title">
+                                                                                Women's
+                                                                                Fashion
+                                                                                <p style="color: #fff;font-size: 50px;text-align: left;font-weight: 900;">
+                                                                                    50%
+                                                                                    OFF
+                                                                                </p>
+                                                                            </h2>
+                                                                            <a href="#"
+                                                                               class="btn btn-banner1">
+                                                                                Shop
+                                                                                now
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </img>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <div class="row">
+
+
+                                            <div class="col-12">
+                                                <img class="bg-right3">
+                                                    <div class="container-fluid">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-8">
+                                                                    <div class="card left_card">
+
+                                                                        <div class="card-body">
+                                                                            <h2 class="card-title">Women's
+                                                                                Fasion
+                                                                                <p style="color: #fff;font-size: 50px;text-align: left;font-weight: 900;">
+                                                                                    50%
+                                                                                    OFF
+                                                                                </p>
+                                                                            </h2>
+                                                                            <a href="#"
+                                                                               class="btn btn-banner1">
+                                                                                Shop
+                                                                                now
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </img>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        
+
+        <template id="mapCliente" name="Clientas">
+          <t t-call="website.layout">
+            
+            <section class="banner_about" style="margin-top:-50px;">
+                <div class="banner-heading text-left">
+                    <h1 style="color:#fff; font-weight:bold;">Clientes</h1>
+                    
+                </div>
+            </section>
+            <section class="men_women">
+                <div class="container">
+                    <div class="row">
+                        <div
+                class="col-4 col-lg-4 col-md-4 col-sm-4 addressmenu"
+              >
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="estado">Estado</label>
+                                        <select
+                        id="estado"
+                        class="form-control"
+                      >
+                                            <option selected="" />
+                                                <t
+                          t-foreach="main_sub_category.state_id"
+                          t-as="stado"
+                        >
+                                                    <option
+                            t-att-value="stado.id"
+                          ><span t-esc="stado.name" /></option>
+                                                </t>
+                                            
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label
+                        for="municiopio"
+                      >Municipio</label>
+                                        <select
+                        id="municiopio"
+                        class="form-control"
+                      >
+                                            <option selected="" />
+                                            
+                                        </select>
+                                    </div>
+
+                                    <div id='cradincer' />
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-8 mapa">
+                            <div id="map">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="fondo " style="margin-top:-50px;">
+            <div class="banner-heading text-left">
+                    <h1 style="color:#fff; font-weight:bold;">¿Te gustaria ser parte de nuestra <br/> distinguida clientela? </h1>
+                    
+                </div>
+            <div class="foncontForm">
+                <div class="card" style="width: 28rem">
+                    <div class="card-body">
+                        <form class="form" action="" method="get">
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Nombre de la Empresa</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="name@example.com" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Representante Legal</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="name@example.com" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="estadofor">estado</label>
+                                <select class="form-control" id="estadofor">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Municipioform">Municipio</label>
+                                <select class="form-control" id="Municipioform">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn " type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div class="contForm">
+            
+        </div>
+    </section>
+         
+        </t>
+           
+        </template>
+    </data>
+</odoo>
+<!-- "error": "'website' Traceback (most recent call last): File "C:\odoo\server\odoo\addons\base\models\qweb.py", line 219, in render_template yield from compiled_fn(self, values, log) File "<template_787>", line 75, in template_787 KeyError: 'website' Error when render the template KeyError: 'website' Template: website.layout Path: /t/html/t[2] Node: <t t-set="x_icon" t-value="website.image_url(website, 'favicon')"/> " -->

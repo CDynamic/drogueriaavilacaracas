@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="ctdac.list">
+      <field name="name">ctdac list</field>
+      <field name="model">ctdac.ctdac</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="ctdac.action_window">
+      <field name="name">ctdac window</field>
+      <field name="res_model">ctdac.ctdac</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="ctdac.action_server">
+      <field name="name">ctdac server</field>
+      <field name="model_id" ref="model_ctdac_ctdac"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="ctdac" id="ctdac.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="ctdac.menu_1" parent="ctdac.menu_root"/>
+    <menuitem name="Menu 2" id="ctdac.menu_2" parent="ctdac.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="ctdac.menu_1_list" parent="ctdac.menu_1"
+              action="ctdac.action_window"/>
+    <menuitem name="Server to list" id="ctdac" parent="ctdac.menu_2"
+              action="ctdac.action_server"/>
+-->
+  </data>
+</odoo>

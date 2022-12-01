@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="layout_tema_dac" name="Main layout" inherit_id="portal.frontend_layout">
+        <xpath expr="//t [@t-call='website.navbar']" position="before">
+
+        <div class="oe_structure oe_structure_solo" id="oe_structure_header_contact_1" data-oe-id="1931" data-oe-xpath="/data/xpath/div" data-oe-model="ir.ui.view" data-oe-field="arch">
+        <section class="s_text_block pt8 pb8 o_colored_level o_cc o_cc4" data-snippet="s_text_block" data-name="Text" style="background-color: rgb(87, 165, 149) !important;">
+            <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 o_colored_level" data-original-title="" title="" aria-describedby="tooltip1145">
+                <small data-original-title="" title="" aria-describedby="tooltip449610">
+                    
+                    
+                    <span>
+                    <a href="https://informacion@drogeriaavila.com" data-original-title="" title="" style=" text-decoration: none;  font-size: 12px !important; color: #ffffff !important;">ventas@avilacaracas.com ​</a>
+                    </span>
+                </small>
+                </div>
+                <div class="col-lg-6 text-lg-right o_colored_level" data-original-title="" title="" aria-describedby="tooltip286428">
+                    <span class="mr-3">
+                        <a href="tel:+1 (650) 555-0111" data-original-title="" title="" style=" text-decoration: none;  font-size: 12px !important; color: #ffffff !important;" > Centro Comercial Uslar, Montalbán, Caracas - Distrito Capital</a>
+                    </span>
+                </div>
+                <div class="col-lg-4 text-lg-right o_colored_level" data-original-title="" title="" aria-describedby="tooltip286428">
+                    
+                    <span class="mr-3">
+                            <a href="tel:+1 (650) 555-0111" data-original-title="" title="" style=" text-decoration: none;  font-size: 12px !important; color: #ffffff !important;" >+58(424)208-11-61</a>
+                    </span>
+                 
+                 
+                </div>
+            </div>
+            </div>
+        </section>
+        </div>
+            
+        </xpath>
+    </template> 
+
+    <template id="template_header_default" inherit_id="website.template_header_default" name="Template Header Theme dac" active="True">
+        <xpath expr="//t [@t-call='website.navbar']" position="replace">
+            <t t-call="website.navbar">
+            <t t-set="_navbar_classes" t-valuef="shadow-sm"/>
+            <div id="top_menu_container" class="container justify-content-start justify-content-lg-between">
+                <!-- Brand -->
+                <t t-call="website.placeholder_header_brand">
+                    <t t-set="_link_class" t-valuef="mr-4"/>
+                   
+                </t>
+                <!-- <p class="drogueríaávilacaracas2 ml-0 mr-5 pt-4">Droguería
+                <br/>
+                <b>Ávila Caracas</b></p> -->
+                <!-- Navbar Collapse -->
+                <div id="top_menu_collapse" class="collapse navbar-collapse order-last order-lg-0">
+                    <t t-call="website.navbar_nav">
+                        <t t-set="_nav_class" t-valuef="flex-grow-1"/>
+                        <!-- Menu -->
+                        <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                            <t t-call="website.submenu">
+                                <t t-set="item_class" t-valuef="nav-item"/>
+                                <t t-set="link_class" t-valuef="nav-link"/>
+                            </t>
+                        </t>
+            <t t-call="website_sale.header_cart_link">
+                <t t-set="_icon" t-value="True"/>
+                <t t-set="_item_class" t-value="'nav-item mx-lg-3'"/>
+                <t t-set="_link_class" t-value="'nav-link'"/>
+            </t> 
+            <!-- <t t-call="website_sale_wishlist.header_wishlist_link">
+                <t t-set="_icon" t-value="True"/>
+                <t t-set="_item_class" t-value="'nav-item mr-lg-3'"/>
+                <t t-set="_link_class" t-value="'nav-link'"/>
+            </t> -->
+                        <!-- Sign In -->
+                        <t t-call="portal.placeholder_user_sign_in">
+                            <t t-set="_item_class" t-valuef="nav-item ml-lg-auto"/>
+                            <t t-set="_link_class" t-valuef="nav-link font-weight-bold"/>
+                        </t>
+                        <!-- User Dropdown -->
+                        <t t-call="portal.user_dropdown">
+                            <t t-set="_user_name" t-value="true"/>
+                            <t t-set="_item_class" t-valuef="nav-item dropdown ml-lg-auto"/>
+                            <t t-set="_link_class" t-valuef="nav-link font-weight-bold"/>
+                        </t>
+                        <!-- Language Selector -->
+                        <t t-call="website.placeholder_header_language_selector">
+                            <t t-set="_div_classes" t-valuef="nav-item my-auto ml-lg-2"/>
+                        </t>
+                    </t>
+                </div>
+                <!-- Call To Action -->
+                <t t-call="website.placeholder_header_call_to_action"/>
+                <!-- Navbar Toggler -->
+                <t t-call="website.navbar_toggler">
+                    <t t-set="_toggler_class" t-valuef="ml-auto"/>
+                </t>
+            </div>
+        </t>
+
+        </xpath>
+
+        
+    </template>
+
+    
+
+
+</odoo>
+

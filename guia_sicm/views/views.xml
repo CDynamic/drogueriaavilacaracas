@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <template id="report_visit_guias">
+   <t t-call="web.external_layout">
+       <div class="page">
+<!--   Document Content   -->
+       </div>
+   </t>
+</template>
+<template id="report_visit_guias">
+   <t t-call="web.html_container">
+       <t t-foreach="docs" t-as="o">
+           <t t-call="guia_sicm.report_visit_guias"/>
+       </t>
+   </t>
+</template>
+  </data>
+</odoo>

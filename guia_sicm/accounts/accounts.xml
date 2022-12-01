@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="view_account_move_form" model="ir.ui.view">
+            <field name="name">view.account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <xpath  expr="//field[@name='payment_reference']"  position="after">
+                <field name="invoice_origin" invisible="1"/>
+                <field name="generarGuia" attrs="{'invisible': [('invoice_origin','=',False)]}"/>
+                <field name="guia_id" context="{'mane': id}" attrs="{'invisible': [('generarGuia', '=', False)]}" damain="[('status','=','1')]" />    
+                    
+                </xpath>
+                
+            </field>
+        </record>
+    </data>
+</odoo>
